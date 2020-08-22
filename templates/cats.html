@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <title>Noah Madrid</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel = "icon" href =  "static/logo.png" type = "image/x-icon"> 
+  </head>
+  <body>
+    <header>
+      <img src="static/me.jpg" class="profile-img">
+      <nav>
+        <ul>
+          <li><a href="/#home">Home</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#contact">Contact</a></li>
+          <li><a href="cats">Cat Face Generator</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="catGenerator">
+      <h2>Cat Face Generator</h2>
+      <p>I created an AI cat face image generator using GAN machine learning architecture.<br>This project was done using Python's Keras machine learning API.</p>
+      <button type='button' id ='retrieve'>Click to generate new cat faces</button>
+      <br>
+      <img src="" id="myimg" />
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+    </div>
+  </body>
+  <script>
+    $(document).ready(function() {
+       $('#retrieve').click(function(){
+           $.ajax({
+           url: "{{ url_for ('get_img') }}",
+           type: "GET",
+           success: function(response) {
+               $("#myimg").attr('src', '/static/' + response);
+          },
+          error: function(xhr) {
+            //Do Something to handle error
+         }
+         });
+       });
+    });
+  </script>
+</html>
