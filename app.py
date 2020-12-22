@@ -55,6 +55,7 @@ def generate_image(gmodel):
     name = data_to_image(data)
     return name
 
+gmodel = load()
 app = Flask(__name__)
 
 @app.route("/")
@@ -63,7 +64,6 @@ def home():
 
 @app.route("/cats")
 def cats():
-    gmodel = load()
     name = generate_image(gmodel)
     return render_template('cats.html')
 
