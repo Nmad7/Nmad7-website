@@ -13,7 +13,7 @@ tensorflow-hub==0.8.0
 tensorflow-metadata==0.22.2
 tensorflow-privacy==0.2.2
 tensorflow-probability==0.11.0
-Flask==1.1.2
+Flask==2.3.2
 matplotlib==3.2.2
 numpy==1.18.5
 scipy==1.4.1
